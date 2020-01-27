@@ -11,8 +11,9 @@ Into The Deep is an ocean exploration game, where you, the submarine dive throug
 
 ## Wireframes
 
+![board index](wireframes.png)
 
-* Architecture/Technologies
+## Architecture/Technologies
 * Javascript for game logic
 * Browserify
 * Canvas
