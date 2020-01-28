@@ -1,0 +1,1 @@
+export const metersToFeet = (meters) => (meters * 3.2808);
