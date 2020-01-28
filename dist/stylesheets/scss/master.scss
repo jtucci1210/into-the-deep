@@ -1,6 +1,9 @@
+//Variables
+$grey: lightgray;
+
+
 //Base
 @import "./base/reset";
-@import "./base/variables";
 
 //Components
 @import "./components/canvas.scss";

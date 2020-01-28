@@ -1,0 +1,6 @@
+@use "./variables";
+#game-canvas {
+  background-color: aqua;
+  border: 1px black solid; }
+
+/*# sourceMappingURL=canvas.css.map */
