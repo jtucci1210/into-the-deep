@@ -1,26 +1,17 @@
 
-// class Submarine {
-//     constructor(){
+class Submarine {
+    constructor(canvasCtx){
+        this.canvasCtx = canvasCtx;
+        this.drawSubmarine();
 
-//     }
-//     createSub(){
+    }
+    drawSubmarine () {
+        let img = new Image();
+        img.src = "./images/submarine.png";
+        img.onload = () => (
+        this.canvasCtx.drawImage(img, 200, 200, 100, 100));
+    
+    }
         
-//         this.width = 40;
-//         this.height = 40;
-//         this.x = 300;
-//         this.y = 250;
-//         this.image = new Image();
-//         this.image.src = "./images/submarine.png";
-//         ctx = myGameArea.context;
-//         ctx.drawImage(
-//             this.image,
-//             this.x,
-//             this.y,
-//             this.width,
-//             this.height
-//         );
-        
-
-//     }
-// }
-// export default Submarine;
+}
+module.exports = Submarine;
