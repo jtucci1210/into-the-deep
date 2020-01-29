@@ -7,7 +7,7 @@ class Game {
         this.start();
     }
     start() {
-        this.submarine = new Submarine(this.canvasCtx)
+        this.submarine = new Submarine(this.canvasCtx, this.gameCanvas)
     }
     
 }
