@@ -7,7 +7,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; }
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bolder;
+  background-color: whitesmoke; }
   .game-controls .fas {
     font-size: 25px; }
   .game-controls .dive-div {
@@ -39,8 +42,19 @@
   .game-controls .game-description-container {
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px; }
+    padding: 10px;
+    font-weight: normal; }
+    .game-controls .game-description-container .links-container {
+      padding: 10px;
+      margin-top: 20px;
+      display: flex;
+      font-weight: bold;
+      font-size: 40px; }
+      .game-controls .game-description-container .links-container a {
+        color: black;
+        margin: 10px; }
 
 /*# sourceMappingURL=game_controls.css.map */

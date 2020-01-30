@@ -3,6 +3,13 @@
   width: 820px;
   border: 1px black solid;
   border-radius: 5px;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .header-div .game-name {
+    font-style: italic;
+    font-size: 30px; }
 
 /*# sourceMappingURL=header.css.map */

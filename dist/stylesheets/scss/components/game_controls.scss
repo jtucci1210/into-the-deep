@@ -9,6 +9,9 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-family: sans-serif;
+    font-weight: bolder;
+    background-color: whitesmoke;
 
     .fas {
         font-size: 25px;
@@ -52,8 +55,24 @@
     .game-description-container {
         margin-top: 30px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 10px;
+        font-weight: normal;
+
+        .links-container {
+            padding: 10px;
+            margin-top: 20px;
+            display: flex;
+            font-weight: bold;
+            font-size: 40px;
+
+            a {
+                color: black;
+                margin: 10px;
+            }
+        }
+
     }
 }
