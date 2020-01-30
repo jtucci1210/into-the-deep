@@ -1,15 +1,18 @@
 @use "./variables";
 body {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 1000px; }
+  body .canvas-controller-container {
+    display: flex; }
   body #depth-box {
     border: 1px black solid;
     position: absolute;
     z-index: 5;
-    top: 26%;
-    right: 30%;
+    top: 33%;
+    right: 22%;
     height: 50px;
     width: 100px;
     background-color: white;
@@ -22,6 +25,7 @@ body {
 #game-canvas {
   background-color: aqua;
   border: 1px black solid;
-  z-index: 1; }
+  z-index: 1;
+  border-radius: 5px; }
 
 /*# sourceMappingURL=canvas.css.map */

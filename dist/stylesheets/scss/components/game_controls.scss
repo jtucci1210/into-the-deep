@@ -1,0 +1,59 @@
+
+.game-controls {
+    height: 500px;
+    width: 200px;
+    border: 1px black solid;
+    margin-right: 25px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .fas {
+        font-size: 25px;
+    }
+
+    .dive-div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .left-right-div {
+        display: flex;
+        margin: 20px;
+        justify-content: space-between;
+        width: 100%;
+        
+        .left {
+            display: flex;
+            align-items: center;
+            width: 50px;
+            margin-left: 10px;
+        }
+        .right {
+            display: flex;
+            align-items: center;
+            width: 50px;
+            margin-right: 10px;
+        }
+    }
+
+    .rise-div {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .game-description-container {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+}

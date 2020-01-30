@@ -2,16 +2,21 @@
 
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 1000px;
+
+    .canvas-controller-container {
+        display: flex;
+    }
 
     #depth-box {
         border: 1px black solid;
         position: absolute;
         z-index: 5;
-        top: 26%;
-        right: 30%;
+        top: 33%;
+        right: 22%;
         height: 50px;
         width: 100px;
         background-color: white;
@@ -26,5 +31,6 @@ body {
     background-color: aqua;
     border: 1px black solid;
     z-index: 1;
+    border-radius: 5px;
 }
 

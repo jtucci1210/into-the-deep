@@ -7,8 +7,32 @@
     <link rel="stylesheet" href="./stylesheets/public/master.css" />
     <title>Into The Deep</title>
     <script src="bundle.js"></script>
+    <script src="https://kit.fontawesome.com/88ffdbeab8.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <canvas id="game-canvas" width="600" height="500"></canvas>
+    <div class="header-div"></div>
+    <div class="canvas-controller-container">
+        <div class="game-controls">
+            <div class="rise-div">
+                <div class="rise">Rise</div>
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            <div class="left-right-div">
+                <div class="left">Left <i class="fas fa-chevron-left"></i></div>
+                <div class="right"><i class="fas fa-chevron-right"></i> Right</div>
+            </div>
+            <div class="dive-div">
+                <i class="fas fa-chevron-down"></i>
+                <div class="dive">Dive!</div>
+            </div>
+            <div class="game-description-container">
+                <p class="game-description">
+                    Explore the seas in your personal submarine! Visit the different zones of the ocean and learn along the way.
+                </p>
+            </div>
+        </div>
+        <canvas id="game-canvas" width="600" height="500"></canvas>
+    </div>
 </body>
 </html>
