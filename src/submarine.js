@@ -69,15 +69,14 @@ class Submarine {
   }
 
   depth() {
-    //   debugger;
       let feetTextForBox = '';
       let metersTextForBox = '';
       let feetDepthItem = document.createElement("li");
       let metersDepthItem = document.createElement("li");
-      let meters = this.y / 10;
-      let feet = converter.metersToFeet(meters);
-      feetTextForBox = document.createTextNode(feet);
-      metersTextForBox = document.createTextNode(meters);
+      let meters = (this.y / 10).toFixed(2);
+      let feet = converter.metersToFeet(meters).toFixed(2);
+      feetTextForBox = document.createTextNode(`Feet ${feet}`);
+      metersTextForBox = document.createTextNode(`Meters ${meters}`);
       feetDepthItem.appendChild(feetTextForBox);
       metersDepthItem.appendChild(metersTextForBox);
       if (this.depthBox.childElementCount === 0 ) {
@@ -87,7 +86,8 @@ class Submarine {
           this.depthBox.replaceChild(feetDepthItem, this.depthBox.childNodes[0]);
           this.depthBox.replaceChild(metersDepthItem, this.depthBox.childNodes[1]);
       }
-      this.gameCanvas.appendChild(this.depthBox);
+      let body = document.getElementsByTagName("body")
+      body[0].appendChild(this.depthBox);
   }
 }
 module.exports = Submarine;
