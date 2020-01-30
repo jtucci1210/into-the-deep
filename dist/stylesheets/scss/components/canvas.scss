@@ -3,4 +3,18 @@
 #game-canvas {
     background-color: aqua;
     border: 1px black solid;
+    position: relative;
+    z-index: 1;
+}
+
+#depth-box {
+    border: 1px black solid;
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    right: 20px;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    color: black;
 }
