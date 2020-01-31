@@ -8,8 +8,8 @@ class Game {
         this.start();
     }
     start() {
-        this.submarine = new Submarine(this.canvasCtx, this.gameCanvas)
         this.background = new GameBackground(this.canvasCtx, this.gameCanvas);
+        
     }
     
 }

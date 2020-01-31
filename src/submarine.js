@@ -18,9 +18,16 @@ class Submarine {
     this.depthBox = document.createElement("div");
     this.depthBox.setAttribute("id", "depth-box")
     this.depth();
+    // this.getPos = this.getPos.bind(this);
+    // this.getPos();
 }
 
-
+    getPos() {
+        return {
+        x: this.x,
+        y: this.y
+        }
+    }
   drawSubmarine() {
     this.canvasCtx.clearRect(
       0,
