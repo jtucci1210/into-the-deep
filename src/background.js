@@ -16,11 +16,6 @@ class GameBackground {
         this.update = this.update.bind(this);
     }
     update(){
-        // if (this.x == -(this.width)) {
-        //     this.x = 0;
-            // debugger;
-        // }
-        // this.image.onload = () =>
           this.canvasCtx.drawImage(
             this.image,
             this.x += this.speedX,

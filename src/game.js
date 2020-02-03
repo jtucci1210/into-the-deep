@@ -1,5 +1,7 @@
 const Submarine = require('./submarine');
 const GameBackground = require('./background');
+const converter = require('./util/conversions')
+
 
 class Game {
     constructor(canvasCtx, gameCanvas){
@@ -12,13 +14,16 @@ class Game {
         this.clearCanvas = this.clearCanvas.bind(this);
         this.interval;
         this.keysReleased = this.keysReleased.bind(this);
+        this.depthBox = document.createElement("div");
+        this.depthBox.setAttribute("id", "depth-box");
         this.keys = {37: false, 38: false, 39: false, 40: false};
         window.addEventListener("keydown", this.updateGameArea, false);
         window.addEventListener("keyup", this.keysReleased, false);
-        // this.start();
+        this.start();
     }
         
     start() {
+        this.updateDepth();
         this.interval = setInterval(this.updateGameArea, 20);
     }
 
@@ -32,13 +37,16 @@ class Game {
 
     keysReleased(e) {
         this.keys[e.keyCode] = false;
+        this.updateGameArea(e);
     }
     newPos(e) {
         this.submarine.speedX = 0;
         this.submarine.speedY = 0;
         this.background.speedX = 0;
         this.background.speedY = 0;
+        if (e.type === "keydown") {
         this.keys[e.keyCode] = true;
+        }
         if (this.keys[37]) {
             this.submarine.speedX = -4;
             this.background.speedX = 4;
@@ -55,10 +63,11 @@ class Game {
             this.submarine.speedY = 4;
             this.background.speedY = -4;
         }
+        if (this.subDepth + this.submarine.speedY >= 0) {
         this.subDepth += this.submarine.speedY;
-        console.log(this.subDepth);
-
+        }
         e.preventDefault();
+        this.updateDepth();
   }
 
     updateGameArea(e) {
@@ -68,6 +77,28 @@ class Game {
         }
         this.background.update();
         this.submarine.update();
+    }
+
+    updateDepth(){
+        let feetTextForBox = '';
+        let metersTextForBox = '';
+        let feetDepthItem = document.createElement("li");
+        let metersDepthItem = document.createElement("li");
+        let meters = this.subDepth;
+        let feet = converter.metersToFeet(meters).toFixed(2);
+        feetTextForBox = document.createTextNode(`Depth: Feet ${feet}`);
+        metersTextForBox = document.createTextNode(`Depth: Meters ${meters}`);
+        feetDepthItem.appendChild(feetTextForBox);
+        metersDepthItem.appendChild(metersTextForBox);
+        if (this.depthBox.childElementCount === 0) {
+            this.depthBox.appendChild(feetDepthItem);
+            this.depthBox.appendChild(metersDepthItem);
+        } else {
+            this.depthBox.replaceChild(feetDepthItem, this.depthBox.childNodes[0]);
+            this.depthBox.replaceChild(metersDepthItem, this.depthBox.childNodes[1]);
+        }
+        let container = document.getElementsByClassName("canvas-controller-container")
+        container[0].appendChild(this.depthBox);
     }
     
 }
