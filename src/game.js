@@ -19,7 +19,8 @@ class Game {
         this.keys = {37: false, 38: false, 39: false, 40: false};
         window.addEventListener("keydown", this.updateGameArea, false);
         window.addEventListener("keyup", this.keysReleased, false);
-        this.start();
+        // this.start();
+        this.updateGameArea();
     }
         
     start() {
@@ -49,11 +50,11 @@ class Game {
         }
         if (this.keys[37]) {
             this.submarine.speedX = -4;
-            this.background.speedX = 4;
+            // this.background.speedX = 4;
         }
         if (this.keys[39]) {
             this.submarine.speedX = 4;
-            this.background.speedX = -4;
+            // this.background.speedX = -4;
         }
         if (this.keys[38]) {
             this.submarine.speedY = -4;
