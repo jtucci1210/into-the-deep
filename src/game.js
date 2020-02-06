@@ -49,20 +49,20 @@ class Game {
         this.keys[e.keyCode] = true;
         }
         if (this.keys[37]) {
-            this.submarine.speedX = -4;
-            // this.background.speedX = 4;
+            this.submarine.speedX = -5;
+            // this.background.speedX = 5;
         }
         if (this.keys[39]) {
-            this.submarine.speedX = 4;
-            // this.background.speedX = -4;
+            this.submarine.speedX = 5;
+            // this.background.speedX = -5;
         }
         if (this.keys[38]) {
-            this.submarine.speedY = -4;
-            this.background.speedY = 4;
+            this.submarine.speedY = -5;
+            this.background.speedY = 5;
         }
         if (this.keys[40]) {
-            this.submarine.speedY = 4;
-            this.background.speedY = -4;
+            this.submarine.speedY = 5;
+            this.background.speedY = -5;
         }
         if (this.subDepth + this.submarine.speedY >= 0) {
         this.subDepth += this.submarine.speedY;

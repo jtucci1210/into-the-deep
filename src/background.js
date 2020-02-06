@@ -27,11 +27,16 @@ class GameBackground {
           // debugger;
           let clipStartX = 0;
           let clipStartY = 0;
-          let clipWidth = this.width;
+          let clipWidth = this.image.width;
+          if (this.clipHeight - this.speedY >= 500) {
+            this.clipHeight = 0;
+          } else {
           this.clipHeight -= this.speedY;
+          }
           let imgPosX = 0;
           let imgPosY = this.height - this.clipHeight;
       console.log(`"this.x": ${this.x}`, `"this.y": ${this.y}`)
+      console.log(`"imgPosX": ${imgPosX}`, `"imgPosY": ${imgPosY}`)
       console.log(`"clipStartX": ${clipStartX}`, `"clipStartY": ${clipStartY}`, `"clipWidth": ${clipWidth}`, `"clipHeight": ${this.clipHeight}`)
 
           this.canvasCtx.drawImage(
