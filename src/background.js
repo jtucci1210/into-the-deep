@@ -24,7 +24,6 @@ class GameBackground {
             this.width,
             this.height
           );
-          // debugger;
           let clipStartX = 0;
           let clipStartY = 0;
           let clipWidth = this.image.width;
@@ -50,8 +49,6 @@ class GameBackground {
             clipWidth,
             this.clipHeight
           );
-      // context.drawImage(img, startclipX, startclipY, clipWidth, clipHeight, x, y, width, height);
-      //                        0 , 0 ,  fullWidth, 4 , 0 , 496 , fullwidth, 4
     }
 }
 module.exports = GameBackground;
