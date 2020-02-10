@@ -5,7 +5,6 @@ class GameBackground {
     constructor(canvasCtx, gameCanvas, subDepth){
         this.canvasCtx = canvasCtx;
         this.gameCanvas = gameCanvas;
-        this.subDepth = subDepth
         this.image = new Image();
         this.image.src = "https://www.transparenttextures.com/patterns/asfalt-light.png";
         this.width = gameCanvas.width;
@@ -15,12 +14,11 @@ class GameBackground {
         this.x = 0;
         this.y = 0; 
         this.clipHeight = 0;
+        this.imgPosY = 0;
+        this.imgPosX = 0;
         this.update = this.update.bind(this);
-        this.atSurface = this.atSurface.bind(this);
     }
     update(){
-      debugger;
-      this.atSurface();
           this.canvasCtx.drawImage(
             this.image,
             this.x += this.speedX,
@@ -29,18 +27,47 @@ class GameBackground {
             this.height
           );
           let scaleHeight = (this.gameCanvas.height / this.image.height)
-          if (this.clipHeight - this.speedY >= 500) {
-            this.y = 0;
-            this.clipHeight = 0;
-          } else {
-          this.clipHeight -= this.speedY;
+
+          if (this.speedY < 0) {
+            if (this.clipHeight - this.speedY >= 500) {
+              this.y = 0;
+              this.clipHeight = 0;
+            } else {
+              this.clipHeight -= this.speedY;
+            }
+            this.imgPosY -= this.clipHeight;
+          } 
+          else if (this.speedY > 0) {
+            if (this.clipHeight - this.speedY <= 0) {
+              this.y = 0;
+              this.clipHeight = 500;
+            } else {
+              this.clipHeight += this.speedY;
+            }
+            this.imgPosY = 0;
           }
-          let imgPosX = 0;
-          let imgPosY = this.height - this.clipHeight;
+
+
+          // if (this.clipHeight - this.speedY >= 500) {
+          //   this.y = 0;
+          //   this.clipHeight = 0;} else if (this.clipHeight - this.speedY <= 0) {
+          //   this.y = 0;
+          //   this.clipHeight = 500;
+          // } else {
+          // this.clipHeight -= this.speedY;
+          // }
+          // let imgPosX = 0;
+          // let imgPosY = this.height;
+
+          // if (imgPosY - this.clipHeight >= 500) {
+          //   imgPosY = 0;
+          // } else {
+          // imgPosY = this.height - this.clipHeight;
+          // }
           // debugger;
       // console.log(`"this.x": ${this.x}`, `"this.y": ${this.y}`)
-      // console.log(`"imgPosX": ${imgPosX}`, `"imgPosY": ${imgPosY}`)
-      // console.log(`"clipStartX": ${clipStartX}`, `"clipStartY": ${clipStartY}`, `"clipWidth": ${clipWidth}`, `"clipHeight": ${this.clipHeight}`)
+      console.log(`"imgPosX": ${this.imgPosX}`, `"imgPosY": ${this.imgPosY}`)
+      console.log(`"speedY": ${this.speedY}`, `"clipHeight": ${this.clipHeight}`)
 
           this.canvasCtx.drawImage(
             this.image,
@@ -48,14 +75,11 @@ class GameBackground {
             0,
             this.image.width,
             this.clipHeight,
-            imgPosX,
-            imgPosY,
+            this.imgPosX,
+            this.imgPosY,
             this.gameCanvas.width,
             this.clipHeight * scaleHeight
           );
-    }
-    atSurface () {
-      if (this.subDepth <= 0) console.log("no");
     }
 }
 module.exports = GameBackground;

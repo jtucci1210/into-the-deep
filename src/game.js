@@ -7,10 +7,10 @@ class Game {
     constructor(canvasCtx, gameCanvas){
         this.canvasCtx = canvasCtx;
         this.gameCanvas = gameCanvas;
-        this.background = new GameBackground(this.canvasCtx, this.gameCanvas, this.subDepth);
+        this.subDepth = 20;
+        this.background = new GameBackground(this.canvasCtx, this.gameCanvas);
         this.submarine = new Submarine(this.canvasCtx, this.gameCanvas);
         this.updateGameArea = this.updateGameArea.bind(this);
-        this.subDepth = 20;
         this.clearCanvas = this.clearCanvas.bind(this);
         this.interval;
         this.keysReleased = this.keysReleased.bind(this);
@@ -50,23 +50,22 @@ class Game {
         }
         if (this.keys[37]) {
             this.submarine.speedX = -5;
-            // this.background.speedX = 5;
         }
+
         if (this.keys[39]) {
             this.submarine.speedX = 5;
-            // this.background.speedX = -5;
         }
+
         if (this.keys[38]) {
             this.submarine.speedY = -5;
-            this.background.speedY = 5;
+            this.atSurface() ? this.background.speedY = 0 : this.background.speedY = 5;
         }
+
         if (this.keys[40]) {
             this.submarine.speedY = 5;
-            this.background.speedY = -5;
+            this.atSurface() ? this.background.speedY = 0 : this.background.speedY = -5;
         }
-        if (this.subDepth + this.submarine.speedY >= 0) {
-        this.subDepth += this.submarine.speedY;
-        }
+
         e.preventDefault();
         this.updateDepth();
   }
@@ -80,13 +79,34 @@ class Game {
         this.submarine.update();
     }
 
-    updateDepth(){
+    atSurface() {
+        if (this.subDepth <= 30) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    updateDepth() {
+        let newDepth = this.subDepth + this.submarine.speedY
+        if (newDepth >= 0 && newDepth <= 20) {
+            this.subDepth += this.submarine.speedY * 0.1;
+        } else if (newDepth > 20 && newDepth <= 200) {
+            this.subDepth += this.submarine.speedY * 0.5;
+        } else if (newDepth > 200) {
+            this.subDepth += this.submarine.speedY;
+        }
+        this.updateDepthBox();
+    }
+
+    updateDepthBox(){
         let feetTextForBox = '';
         let metersTextForBox = '';
         let feetDepthItem = document.createElement("li");
         let metersDepthItem = document.createElement("li");
-        let meters = this.subDepth;
-        let feet = converter.metersToFeet(meters).toFixed(2);
+        let meters = this.subDepth < 20 ? "Too Shallow" : this.subDepth.toFixed(0);
+        let feet = this.subDepth < 20 
+        ? "Too Shallow"
+        : converter.metersToFeet(meters).toFixed(2);
         feetTextForBox = document.createTextNode(`Depth: Feet ${feet}`);
         metersTextForBox = document.createTextNode(`Depth: Meters ${meters}`);
         feetDepthItem.appendChild(feetTextForBox);
