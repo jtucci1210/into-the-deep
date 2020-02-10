@@ -19,8 +19,8 @@ class Game {
         this.keys = {37: false, 38: false, 39: false, 40: false};
         window.addEventListener("keydown", this.updateGameArea, false);
         window.addEventListener("keyup", this.keysReleased, false);
-        // this.start();
-        this.updateGameArea();
+        this.start();
+        // this.updateGameArea();
     }
         
     start() {
