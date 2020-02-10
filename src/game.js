@@ -7,7 +7,7 @@ class Game {
     constructor(canvasCtx, gameCanvas){
         this.canvasCtx = canvasCtx;
         this.gameCanvas = gameCanvas;
-        this.background = new GameBackground(this.canvasCtx, this.gameCanvas);
+        this.background = new GameBackground(this.canvasCtx, this.gameCanvas, this.subDepth);
         this.submarine = new Submarine(this.canvasCtx, this.gameCanvas);
         this.updateGameArea = this.updateGameArea.bind(this);
         this.subDepth = 20;
@@ -19,8 +19,8 @@ class Game {
         this.keys = {37: false, 38: false, 39: false, 40: false};
         window.addEventListener("keydown", this.updateGameArea, false);
         window.addEventListener("keyup", this.keysReleased, false);
-        this.start();
-        // this.updateGameArea();
+        // this.start();
+        this.updateGameArea();
     }
         
     start() {
