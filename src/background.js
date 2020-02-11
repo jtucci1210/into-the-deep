@@ -1,52 +1,43 @@
-const Submarine = require("./submarine");
-
 
 class GameBackground {
-    constructor(canvasCtx, gameCanvas, subDepth){
+    constructor(canvasCtx, gameCanvas){
         this.canvasCtx = canvasCtx;
         this.gameCanvas = gameCanvas;
         this.image = new Image();
         this.image.src = "https://www.transparenttextures.com/patterns/asfalt-light.png";
         this.width = gameCanvas.width;
         this.height = gameCanvas.height;
-        this.speedX = 0;
         this.speedY = 0;
-        this.x = 0;
-        this.y = 0; 
-        this.clipHeight = 0;
-        this.imgPosY = 0;
-        this.imgPosX = 0;
+        this.dx = 0;
+        this.dy = 0; 
+        this.sx = 0;
+        this.sy = 0; 
+        this.sh = this.image.height;
+        this.dh = this.height;
+        this.scrollVal = 0;
         this.update = this.update.bind(this);
     }
-    update(){
-          this.canvasCtx.drawImage(
-            this.image,
-            this.x += this.speedX,
-            this.y += this.speedY,
-            this.width,
-            this.height
-          );
-          let scaleHeight = (this.gameCanvas.height / this.image.height)
 
-          if (this.speedY < 0) {
-            if (this.clipHeight - this.speedY >= 500) {
-              this.y = 0;
-              this.clipHeight = 0;
-            } else {
-              this.clipHeight -= this.speedY;
-            }
-            this.imgPosY -= this.clipHeight;
-          } 
-          else if (this.speedY > 0) {
-            if (this.clipHeight - this.speedY <= 0) {
-              this.y = 0;
-              this.clipHeight = 500;
-            } else {
-              this.clipHeight += this.speedY;
-            }
-            this.imgPosY = 0;
-          }
+    update(subDepth){
 
+      let scaleHeight = (this.gameCanvas.height / this.image.height)
+      this.scrollVal -= this.speedY;
+      if (this.scrollVal === 500) {
+        this.scrollVal = 0;
+      }
+      //   (image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+      this.canvasCtx.drawImage(
+        this.image,
+        this.dx,
+        this.dy += this.scrollVal,
+        this.width,
+        this.height
+      );
+          
+      // this.canvasCtx.drawImage(
+      //   this.image,
+      //   0,
+      // );
 
           // if (this.clipHeight - this.speedY >= 500) {
           //   this.y = 0;
@@ -64,22 +55,8 @@ class GameBackground {
           // } else {
           // imgPosY = this.height - this.clipHeight;
           // }
-          // debugger;
-      // console.log(`"this.x": ${this.x}`, `"this.y": ${this.y}`)
-      console.log(`"imgPosX": ${this.imgPosX}`, `"imgPosY": ${this.imgPosY}`)
-      console.log(`"speedY": ${this.speedY}`, `"clipHeight": ${this.clipHeight}`)
 
-          this.canvasCtx.drawImage(
-            this.image,
-            0,
-            0,
-            this.image.width,
-            this.clipHeight,
-            this.imgPosX,
-            this.imgPosY,
-            this.gameCanvas.width,
-            this.clipHeight * scaleHeight
-          );
+         
     }
 }
 module.exports = GameBackground;
