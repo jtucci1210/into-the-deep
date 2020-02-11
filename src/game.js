@@ -11,9 +11,10 @@ class Game {
         this.subDepth = 20;
         this.background = new GameBackground(this.canvasCtx, this.gameCanvas);
         this.submarine = new Submarine(this.canvasCtx, this.gameCanvas);
+        this.garbage = new Garbage(this.canvasCtx, this.gameCanvas);
         this.updateGameArea = this.updateGameArea.bind(this);
         this.makeGarbage = this.makeGarbage.bind(this);
-        this.garbage = [];
+        this.garbageArr = [];
         this.clearCanvas = this.clearCanvas.bind(this);
         this.interval;
         this.garbageInterval;
@@ -81,13 +82,15 @@ class Game {
             this.newPos(e)
         }
         this.background.update();
+        this.garbage.update();
         this.submarine.update();
-        for(let i = 0; i < this.garbage.length; i++) {
-            this.garbage[i].update();
-        }
+        // for(let i = 0; i < this.garbage.length; i++) {
+        //     this.garbage[i].update();
+        // }
     }
     makeGarbage() {
-        this.garbage.push(new Garbage(this.canvasCtx, this.gameCanvas));
+        if (this.garbageArr.length)
+        // this.garbage.push(new Garbage(this.canvasCtx, this.gameCanvas));
     }
 
     atSurface() {

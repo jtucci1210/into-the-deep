@@ -7,16 +7,14 @@ class Garbage {
         this.image.src = "./images/plastic-bag.png";
         this.speedY = 0;
         this.randomX = Math.floor(Math.random() * 600);
-        this.generate = this.generate.bind(this);
-        this.generate();
         this.update = this.update.bind(this);
-
+        
     }
     generate() {
         this.canvasCtx.drawImage(
             this.image,
             this.randomX,
-            this.height,
+            450,
             50,
             50
         );
@@ -36,4 +34,4 @@ class Garbage {
 
 
 }
-export default Garbage;
+module.exports = Garbage;
