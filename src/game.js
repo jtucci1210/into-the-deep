@@ -1,6 +1,7 @@
 const Submarine = require('./submarine');
 const GameBackground = require('./background');
-const converter = require('./util/conversions')
+const converter = require('./util/conversions');
+const Garbage = require('./garbage');
 
 
 class Game {
@@ -11,8 +12,11 @@ class Game {
         this.background = new GameBackground(this.canvasCtx, this.gameCanvas);
         this.submarine = new Submarine(this.canvasCtx, this.gameCanvas);
         this.updateGameArea = this.updateGameArea.bind(this);
+        this.makeGarbage = this.makeGarbage.bind(this);
+        this.garbage = [];
         this.clearCanvas = this.clearCanvas.bind(this);
         this.interval;
+        this.garbageInterval;
         this.keysReleased = this.keysReleased.bind(this);
         this.depthBox = document.createElement("div");
         this.depthBox.setAttribute("id", "depth-box");
@@ -25,6 +29,7 @@ class Game {
         
     start() {
         this.updateDepth();
+        this.garbageInterval = setInterval(this.makeGarbage, Math.floor(Math.random() * 20000));
         this.interval = setInterval(this.updateGameArea, 20);
     }
 
@@ -77,10 +82,16 @@ class Game {
         }
         this.background.update();
         this.submarine.update();
+        for(let i = 0; i < this.garbage.length; i++) {
+            this.garbage[i].update();
+        }
+    }
+    makeGarbage() {
+        this.garbage.push(new Garbage(this.canvasCtx, this.gameCanvas));
     }
 
     atSurface() {
-        if (this.subDepth <= 30) {
+        if (this.subDepth <= 20) {
             return true;
         } else {
             return false;
