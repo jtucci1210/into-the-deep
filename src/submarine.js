@@ -1,4 +1,3 @@
-const converter = require("./util/conversions");
 
 class Submarine {
   constructor(canvasCtx, gameCanvas) {
