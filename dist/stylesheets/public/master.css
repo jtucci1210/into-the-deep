@@ -69,7 +69,7 @@ body {
       font-family: sans-serif; }
 
 #game-canvas {
-  background-color: #37cfdd;
+  background-color: darkblue;
   border: 1px black solid;
   z-index: 1;
   border-radius: 5px; }

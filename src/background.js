@@ -17,18 +17,12 @@ class GameBackground {
     this.scrollVal = 0;
     this.update = this.update.bind(this);
   }
-  update(subDepth){
-    let scaleHeight = (this.gameCanvas.height / this.image.height)
-    this.scrollVal -= this.speedY;
-    if (this.scrollVal === 500) {
-      this.scrollVal = 0;
+  update(){
+    if (this.dy === 500) {
       this.dy = 0;
-    } else if (this.scrollVal <= -500) {
-      this.scrollVal = 0;
+    } else if (this.dy <= -500) {
       this.dy = 0;
     }
-    //   (image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-    console.log(`scrollVal: ${this.scrollVal}`, `speedY: ${this.speedY}`, `dy: ${this.dy}`)
     this.canvasCtx.drawImage(
       this.image,
       this.dx,
@@ -36,7 +30,6 @@ class GameBackground {
       this.width,
       this.height
     );
-        
     this.canvasCtx.drawImage(
       this.image,
       this.dx,
@@ -44,22 +37,13 @@ class GameBackground {
       this.width,
       this.height
     );
-        // if (this.clipHeight - this.speedY >= 500) {
-        //   this.y = 0;
-        //   this.clipHeight = 0;} else if (this.clipHeight - this.speedY <= 0) {
-        //   this.y = 0;
-        //   this.clipHeight = 500;
-        // } else {
-        // this.clipHeight -= this.speedY;
-        // }
-        // let imgPosX = 0;
-        // let imgPosY = this.height;
-        // if (imgPosY - this.clipHeight >= 500) {
-        //   imgPosY = 0;
-        // } else {
-        // imgPosY = this.height - this.clipHeight;
-        // }
-       
+    this.canvasCtx.drawImage(
+      this.image,
+      this.dx,
+      this.dy -this.height,
+      this.width,
+      this.height
+    );
   }
 }
 module.exports = GameBackground;

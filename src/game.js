@@ -75,7 +75,7 @@ class Game {
         if (e) {
             this.newPos(e)
         }
-        this.background.update(this.subDepth);
+        this.background.update();
         this.submarine.update();
     }
 
