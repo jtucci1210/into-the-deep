@@ -83,7 +83,7 @@ class Game {
         this.background.update();
         this.submarine.update();
         for(let i = 0; i < this.garbageArr.length; i++) {
-            this.garbageArr[i].generate();
+            this.garbageArr[i].generate(this.background.speedY);
         }
         this.emptyGarbage();
     }

@@ -12,13 +12,13 @@ class Garbage {
         this.generate = this.generate.bind(this);
         
     }
-    generate() {
+    generate(backgroundSpeed) {
 
         // debugger;
         this.canvasCtx.drawImage(
             this.image,
             this.randomX,
-            this.dy -= this.speedY,
+            this.dy -= (this.speedY - backgroundSpeed),
             50,
             50
         );
