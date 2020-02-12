@@ -5,28 +5,20 @@ class Garbage {
         this.gameCanvas = gameCanvas;
         this.image = new Image();
         this.image.src = "./images/plastic-bag.png";
-        this.speedY = 0;
+        this.height = this.gameCanvas.height;
+        this.speedY = 1;
         this.randomX = Math.floor(Math.random() * 600);
-        this.update = this.update.bind(this);
+        this.dy = 450;
+        this.generate = this.generate.bind(this);
         
     }
     generate() {
+
+        // debugger;
         this.canvasCtx.drawImage(
             this.image,
             this.randomX,
-            450,
-            50,
-            50
-        );
-    }
-
-    update(){
-        this.speedY += 1;
-
-        this.canvasCtx.drawImage(
-            this.image,
-            this.randomX,
-            this.height + this.speedY,
+            this.dy -= this.speedY,
             50,
             50
         );
