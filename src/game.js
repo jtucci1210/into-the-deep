@@ -21,6 +21,7 @@ class Game {
         this.keysReleased = this.keysReleased.bind(this);
         this.depthBox = document.createElement("div");
         this.depthBox.setAttribute("id", "depth-box");
+        this.collectedTrash = 0;
         this.keys = {37: false, 38: false, 39: false, 40: false};
         window.addEventListener("keydown", this.updateGameArea, false);
         window.addEventListener("keyup", this.keysReleased, false);
@@ -88,6 +89,7 @@ class Game {
             let possibleCollision = new Collided(this.garbageArr[i], this.submarine);
             if (possibleCollision.collision() === true) {
                 collisions.push(i);
+                this.collectedTrash += collisions.length;
             };
         }
         this.emptyGarbage(collisions);

@@ -3,8 +3,6 @@ class Collided {
     constructor(garbage, submarine){
         this.garbage = garbage;
         this.submarine = submarine;
-        this.collectedTrash = 0;
-
     }
     centerPoint(object, distArr) {
         let xCenter = distArr[0] + object.x;
@@ -31,7 +29,6 @@ class Collided {
         
         if (this.distanceBetween(subCenter[0], bagCenter[0]) < (subVectors[0] + bagVectors[0])*0.8 && 
             this.distanceBetween(subCenter[1], bagCenter[1]) < (subVectors[1] + bagVectors[1])*.8) {
-            this.collectedTrash += 1;
             return true;
         } else { return false}
     }

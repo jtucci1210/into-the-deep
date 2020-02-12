@@ -32,7 +32,7 @@ class Submarine {
 
   atBoundaryX() {
     const posX = this.x + this.speedX;
-    const canvasBndryX = this.gameCanvas.width * 0.1;
+    const canvasBndryX = this.gameCanvas.width * 0.025;
     if (posX <= canvasBndryX || posX + this.width >= this.gameCanvas.width - canvasBndryX) {
       return true;
     } else {

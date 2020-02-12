@@ -8,11 +8,11 @@ class Garbage {
         this.height = 40;
         this.width = 40;
         this.speedY = 1;
-        this.x = Math.floor(Math.random() * 600);
+        this.x = Math.floor(Math.random() * 500) + 50;
         this.y = 450;
         this.generate = this.generate.bind(this);
-        
     }
+
     generate(backgroundSpeed) {
 
         this.canvasCtx.drawImage(
