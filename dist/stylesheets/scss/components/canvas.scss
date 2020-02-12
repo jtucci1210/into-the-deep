@@ -42,13 +42,27 @@ body {
         #hidden {
             display: none;
         }
+    
     }
 
 }
 #game-canvas {
-    background-color: rgb(4, 172, 223);
+    // background-color: rgb(4, 172, 223);
     border: 1px black solid;
     z-index: 1;
     border-radius: 5px;
+}
+
+.sunlight {
+    background-color: rgb(4, 172, 223);
+}
+
+.twilight {
+    background-image: linear-gradient(rgb(4, 172, 223), darkblue);
+}
+
+.midnight {
+    background-color: rgb(2, 6, 47);
+
 }
 

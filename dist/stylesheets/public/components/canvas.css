@@ -37,9 +37,17 @@ body {
       display: none; }
 
 #game-canvas {
-  background-color: #04acdf;
   border: 1px black solid;
   z-index: 1;
   border-radius: 5px; }
+
+.sunlight {
+  background-color: #04acdf; }
+
+.twilight {
+  background-image: linear-gradient(#04acdf, darkblue); }
+
+.midnight {
+  background-color: #02062f; }
 
 /*# sourceMappingURL=canvas.css.map */

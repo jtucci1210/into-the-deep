@@ -10,10 +10,11 @@ class Game {
     constructor(canvasCtx, gameCanvas){
         this.canvasCtx = canvasCtx;
         this.gameCanvas = gameCanvas;
+        this.gameCanvas.setAttribute("class", "sunlight");
         this.subDepth = 20;
         this.background = new GameBackground(this.canvasCtx, this.gameCanvas);
         this.submarine = new Submarine(this.canvasCtx, this.gameCanvas);
-        this.zone = new Zone(this.canvasCtx, this.gameCanvas);
+        this.zone = new Zone(this.gameCanvas);
         this.updateGameArea = this.updateGameArea.bind(this);
         this.makeGarbage = this.makeGarbage.bind(this);
         this.garbageArr = [];
