@@ -5,7 +5,7 @@ export const layers = {
         minD: 0,
         maxD: 200,
         colorId: "sunlight",
-        creatures: ["dolphins", "turtles", "tuna"]
+        creatures: "dolphins, turtles, and tuna."
     },
 
     "twilight" : {
@@ -14,7 +14,7 @@ export const layers = {
         minD: 201,
         maxD: 1000,
         colorId: "twilight",
-        creatures: ["sharks", "swordfish"]
+        creatures: "sharks and swordfish."
     },
 
     "midnight" : {
@@ -23,7 +23,7 @@ export const layers = {
         minD: 1001,
         maxD: 4000,
         colorId: "midnight",
-        creatures: ["anglerfish", "giant squid", "sperm whale"]
+        creatures: "anglerfish, giant squid, and sperm whale."
     },
 
     "abyssal" : {
@@ -32,7 +32,7 @@ export const layers = {
         minD: 4001,
         maxD: 6000,
         colorId: "midnight",
-        creatures: ["dumbo octopus", "gulper eel", "anglerfish"]
+        creatures: "dumbo octopus, gulper eel, and anglerfish."
     },
 
     "trenches" : {
@@ -41,6 +41,6 @@ export const layers = {
         minD: 6001,
         maxD: 11000,
         colorId: "midnight",
-        creatures: ["mostly invertebrates such as sponges, worms, and isopods"]
+        creatures: "sponges, worms, and isopods."
     }
 }

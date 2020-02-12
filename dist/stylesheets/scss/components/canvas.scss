@@ -29,7 +29,7 @@ body {
             font-family: sans-serif;
         }
 
-        #zone-box {
+        .zone-box {
             position: absolute;
             z-index: 5;
             top: 5%;
@@ -39,7 +39,7 @@ body {
             background-color: lightgray;
             opacity: .5;
         }
-        #hidden {
+        .hidden {
             display: none;
         }
     
