@@ -14,7 +14,8 @@ class Collided {
         this.rightOfBag = this.garbage.randomX + this.garbage.imgWidth;
     }
     collision() {
-        // debugger;
+        console.log("top", this.topOfSub, this.topOfBag, "bottom", this.bottomOfSub, this.bottomOfBag)
+        console.log("left", this.leftOfSub, this.leftOfBag, "right", this.rightOfSub, this.rightOfBag)
         if (
             (this.topOfSub === this.bottomOfBag && this.rightOfSub === this.leftOfBag) ||
             (this.topOfSub === this.bottomOfBag && this.rightOfBag === this.leftOfSub) ||

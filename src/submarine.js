@@ -15,8 +15,6 @@ class Submarine {
   }
 
   update() {
-    // console.log("I've been triggered", this.canvasCtx)
-
     if (this.atBoundaryX()) {
       this.speedX = 0
     }
