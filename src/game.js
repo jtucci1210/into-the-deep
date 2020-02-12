@@ -3,6 +3,7 @@ const GameBackground = require('./background');
 const converter = require('./util/conversions');
 const Garbage = require('./garbage');
 const Collided = require('./collided');
+const Zone = require('./zones');
 
 
 class Game {
@@ -12,6 +13,7 @@ class Game {
         this.subDepth = 20;
         this.background = new GameBackground(this.canvasCtx, this.gameCanvas);
         this.submarine = new Submarine(this.canvasCtx, this.gameCanvas);
+        this.zone = new Zone(this.canvasCtx, this.gameCanvas);
         this.updateGameArea = this.updateGameArea.bind(this);
         this.makeGarbage = this.makeGarbage.bind(this);
         this.garbageArr = [];
@@ -92,6 +94,7 @@ class Game {
                 this.collectedTrash += collisions.length;
             };
         }
+        this.zone.zoneChange(this.subDepth);
         this.emptyGarbage(collisions);
     }
     makeGarbage() {

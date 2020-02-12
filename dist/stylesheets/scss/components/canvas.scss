@@ -28,6 +28,20 @@ body {
             font-weight: bolder;
             font-family: sans-serif;
         }
+
+        #zone-box {
+            position: absolute;
+            z-index: 5;
+            top: 5%;
+            right: 20%;
+            height: 100px;
+            width: 400px;
+            background-color: lightgray;
+            opacity: .5;
+        }
+        #hidden {
+            display: none;
+        }
     }
 
 }
