@@ -2,6 +2,7 @@ const Submarine = require('./submarine');
 const GameBackground = require('./background');
 const converter = require('./util/conversions');
 const Garbage = require('./garbage');
+const Collided = require('./collided');
 
 
 class Game {
@@ -24,7 +25,6 @@ class Game {
         window.addEventListener("keydown", this.updateGameArea, false);
         window.addEventListener("keyup", this.keysReleased, false);
         this.start();
-        // this.updateGameArea();
     }
         
     start() {
@@ -76,6 +76,7 @@ class Game {
   }
 
     updateGameArea(e) {
+        let collisions = [];
         this.clearCanvas();
         if (e) {
             this.newPos(e)
@@ -84,8 +85,12 @@ class Game {
         this.submarine.update();
         for(let i = 0; i < this.garbageArr.length; i++) {
             this.garbageArr[i].generate(this.background.speedY);
+            let possibleCollision = new Collided(this.garbageArr[i], this.submarine);
+            if (possibleCollision.collision() === true) {
+                collisions.push(i);
+            };
         }
-        this.emptyGarbage();
+        this.emptyGarbage(collisions);
     }
     makeGarbage() {
         if (this.garbageArr.length < 3) {
@@ -93,9 +98,9 @@ class Game {
         }
     }
 
-    emptyGarbage() {
+    emptyGarbage(collisions) {
         for (let i = 0; i < this.garbageArr.length; i++) {
-            if (this.garbageArr[i].dy > 600 || this.garbageArr[i].dy < -60) {
+            if (this.garbageArr[i].dy < -60 || collisions.includes(i)) {
                 this.garbageArr.splice(i, 1);
             }
         }

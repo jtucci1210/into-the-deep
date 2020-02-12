@@ -5,7 +5,8 @@ class Garbage {
         this.gameCanvas = gameCanvas;
         this.image = new Image();
         this.image.src = "./images/plastic-bag.png";
-        this.height = this.gameCanvas.height;
+        this.imgHeight = 40;
+        this.imgWidth = 40;
         this.speedY = 1;
         this.randomX = Math.floor(Math.random() * 600);
         this.dy = 450;
@@ -14,13 +15,12 @@ class Garbage {
     }
     generate(backgroundSpeed) {
 
-        // debugger;
         this.canvasCtx.drawImage(
             this.image,
             this.randomX,
             this.dy -= (this.speedY - backgroundSpeed),
-            50,
-            50
+            this.imgHeight,
+            this.imgWidth
         );
     }
 
