@@ -69,11 +69,17 @@ class Game {
         if (this.keys[38]) {
             this.submarine.speedY = -5;
             this.atBarrier() ? this.background.speedY = 0 : this.background.speedY = 5;
+            if (this.depth.subDepth > 1000 && this.depth.subDepth < 6000) {
+                this.background.speedY = 25;
+            }
         }
 
         if (this.keys[40]) {
             this.submarine.speedY = 5;
             this.atBarrier() ? this.background.speedY = 0 : this.background.speedY = -5;
+            if (this.depth.subDepth > 1000 && this.depth.subDepth < 6000) {
+                this.background.speedY = -25;
+            }
         }
 
         e.preventDefault();
@@ -99,6 +105,8 @@ class Game {
         this.displayGarbageCount();
         this.zone.zoneChange(this.depth.subDepth);
         this.emptyGarbage(collisions);
+        this.depth.moveDepthBox();
+
     }
     makeGarbage() {
         if (this.garbageArr.length < 3) {
@@ -124,7 +132,9 @@ class Game {
     
     displayGarbageCount() {
         let garbageHeader = document.createElement("h2");
+        garbageHeader.setAttribute("class", "garbage-header")
         let garbageContent = document.createElement("p");
+        garbageContent.setAttribute("class", "garbage-content")
         let garbageHeaderText = document.createTextNode("Garbage Collected:");
         let garbageContentText = document.createTextNode(this.collectedTrash);
 

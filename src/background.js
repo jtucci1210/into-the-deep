@@ -10,11 +10,8 @@ class GameBackground {
     this.speedY = 0;
     this.dx = 0;
     this.dy = 0; 
-    this.sx = 0;
-    this.sy = 0; 
     this.sh = this.image.height;
     this.dh = this.height;
-    this.scrollVal = 0;
     this.update = this.update.bind(this);
   }
   update(){

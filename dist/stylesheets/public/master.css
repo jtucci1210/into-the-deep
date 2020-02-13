@@ -53,34 +53,51 @@ body {
     display: flex;
     position: relative;
     margin-bottom: 100px; }
-    body .canvas-controller-container #depth-box {
+    body .canvas-controller-container .depth-box {
       border: 1px black solid;
       position: absolute;
+      border-radius: 5px;
+      padding: 5px;
       z-index: 5;
       top: 0%;
-      right: -16%;
-      height: 70px;
-      width: 125px;
+      left: 100%;
+      height: 80px;
+      width: 145px;
       background-color: white;
       color: black;
       list-style: none;
-      text-align: center;
+      text-align: left;
       font-weight: bolder;
-      font-family: sans-serif; }
+      font-family: serif; }
+      body .canvas-controller-container .depth-box .depth-header {
+        font-size: large;
+        font-family: sans-serif;
+        text-align: center;
+        margin-bottom: 10px; }
     body .canvas-controller-container .garbage-box {
       border: 1px black solid;
       position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       z-index: 5;
-      top: 5%;
-      right: 5%;
-      height: 70px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      top: 3%;
+      right: 2%;
+      height: 60px;
       width: 125px;
-      background-color: white;
+      background-color: lightgray;
+      border-radius: 5px;
+      opacity: .75;
       color: black;
-      list-style: none;
       text-align: center;
       font-weight: bolder;
       font-family: sans-serif; }
+      body .canvas-controller-container .garbage-box .garbage-header {
+        margin-bottom: 10px; }
+      body .canvas-controller-container .garbage-box .garbage-content {
+        font-style: italic; }
     body .canvas-controller-container .zone-box {
       position: absolute;
       z-index: 5;
