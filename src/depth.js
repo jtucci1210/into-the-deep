@@ -34,7 +34,7 @@ class Depth {
         this.canvasCtx.fillStyle = "gold";
         this.canvasCtx.beginPath();
         this.canvasCtx.ellipse(
-            rightAxis, posY, 15, 10, Math.PI, 0, 2 * Math.PI
+            rightAxis, posY, 15, 5, Math.PI, 0, 2 * Math.PI
         );
         this.canvasCtx.stroke();
         
