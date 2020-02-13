@@ -101,6 +101,7 @@ class Game {
         this.displayGarbageCount();
         this.zone.zoneChange(this.subDepth);
         this.emptyGarbage(collisions);
+        console.log(this.garbageArr.length)
     }
     makeGarbage() {
         if (this.garbageArr.length < 3) {
@@ -110,7 +111,7 @@ class Game {
 
     emptyGarbage(collisions) {
         for (let i = 0; i < this.garbageArr.length; i++) {
-            if (this.garbageArr[i].dy < -60 || collisions.includes(i)) {
+            if (this.garbageArr[i].y < -60 || collisions.includes(i)) {
                 this.garbageArr.splice(i, 1);
             }
         }
