@@ -19,7 +19,7 @@ export const layers = {
 
     "midnight" : {
         name: "Midnight zone (Bathypelagic Zone)",
-        info: "No light penetrates to this zone, keeping it in perpetual darkness. Pressure here is about 400 times that of the surface. This is the zone in which the Titanic rests",
+        info: "No light penetrates to this zone, keeping it in perpetual darkness. Pressure here is about 400 times that of the surface. This is the zone in which the Titanic rests.",
         minD: 1001,
         maxD: 4000,
         colorId: "midnight",

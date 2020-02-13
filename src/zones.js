@@ -37,7 +37,9 @@ class Zones {
     }
     displayInfo() {
         let zoneName = document.createElement("h2");
+        zoneName.setAttribute("class", "zone-name")
         let zoneInfo = document.createElement("p");
+        zoneInfo.setAttribute("class", "zone-info")
         let headerText = document.createTextNode(this.currentZone.name);
         let paraText = document.createTextNode(`${this.currentZone.info}
          Here you will find creatures such as ${this.currentZone.creatures}`);

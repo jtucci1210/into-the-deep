@@ -14,7 +14,7 @@ body {
         margin-bottom: 100px;
 
         .depth-box {
-            border: 1px black solid;
+            border: solid 5px gold;
             position: absolute;
             border-radius: 5px;
             padding: 5px;
@@ -23,8 +23,8 @@ body {
             left: 100%;
             height: 80px;
             width: 145px;
-            background-color: white;
-            color: black;
+            background-color: black;
+            color: rgb(4, 172, 223);
             list-style: none;
             text-align: left;
             font-weight: bolder;
@@ -71,13 +71,27 @@ body {
 
         .zone-box {
             position: absolute;
+            border: 1px black solid;
+            padding: 5px;
             z-index: 5;
-            top: 5%;
+            top: 3%;
             right: 20%;
             height: 100px;
             width: 400px;
             background-color: lightgray;
-            opacity: .5;
+            border-radius: 5px;
+            opacity: .75;
+            text-align: center;
+
+            .zone-name {
+                font-weight: bolder;
+                margin-bottom: 10px;
+                font-family: sans-serif;
+            }
+
+            .zone-info {
+
+            }
         }
         .hidden {
             display: none;
@@ -87,8 +101,7 @@ body {
 
 }
 #game-canvas {
-    // background-color: rgb(4, 172, 223);
-    border: 1px black solid;
+    border: solid 5px gold;
     z-index: 1;
     border-radius: 5px;
 }
