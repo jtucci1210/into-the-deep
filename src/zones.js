@@ -36,7 +36,6 @@ class Zones {
         }
     }
     displayInfo() {
-        // debugger;
         let zoneName = document.createElement("h2");
         let zoneInfo = document.createElement("p");
         let headerText = document.createTextNode(this.currentZone.name);
