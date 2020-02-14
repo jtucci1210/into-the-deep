@@ -1,5 +1,7 @@
 # into-the-deep
 
+Live Link: https://jtucci1210.github.io/into-the-deep/dist/
+
 ## Background
 Into The Deep is an ocean exploration game, where you, the submarine dive through the different layers of the ocean. Along the way you will learn about the different zones while encountering garbage (which you move over to collect). As you go deeper the light will diminish making it harder to see.
 
