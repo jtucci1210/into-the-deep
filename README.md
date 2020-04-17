@@ -10,7 +10,6 @@ Into The Deep is an ocean exploration game, where you, the submarine dive throug
 * Garbage that appears/ is able to be collected
 * "Infinite" scroll in the vertical axis
 * Depth gauge and depth arrow that corresponds on canvas to location
-* Deploy on Heroku
 
 ## Wireframes
 
